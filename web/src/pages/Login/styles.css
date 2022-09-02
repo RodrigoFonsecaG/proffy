@@ -1,0 +1,103 @@
+#login-content {
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
+  flex-direction: column;
+  max-width: 100%;
+  padding: 0 3rem 0 3rem;
+}
+
+#login-content header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2.4rem;
+  align-items: center;
+}
+
+#login-content header h2 {
+  font-weight: bold;
+  font-size: 2.4rem;
+  line-height: 34px;
+  color: var(--color-text-title);
+}
+
+#login-content header a {
+  color: var(--color-primary);
+  font-weight: 400;
+  line-height: 24px;
+  font-size: 1.6rem;
+
+  fill: var(--color-text-complement);
+
+  text-decoration: none;
+}
+
+#login-content .login form .input-block:first-child input {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+#login-content .login form .input-block + .input-block{
+  position: relative;
+}
+
+#login-content .login form .input-block + .input-block svg{
+  position: absolute;
+  left: 90%;
+  top: 1px;
+
+  cursor: pointer;
+}
+
+#login-content .login form .input-block + .input-block input {
+  margin-top: -1.5rem;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+
+
+}
+
+#login-content .login form .login-commands {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 2.4rem 0;
+}
+
+#login-content .login form .login-commands .remember-me div {
+  display: flex;
+  align-items: center;
+}
+
+#login-content .login form .login-commands .remember-me div input {
+  margin-right: 2rem;
+
+
+}
+
+#login-content .login form .login-commands a {
+  text-decoration: none;
+  color: var(--color-text-complement);
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+
+@media(min-width: 1100px){
+#login-content {
+
+  max-width: 70%;
+  padding: 0 3rem 0 3rem;
+}
+}
+
+
+@media(min-width: 1500px){
+#login-content {
+
+  max-width: 50%;
+  padding: 0 3rem 0 3rem;
+}
+}
