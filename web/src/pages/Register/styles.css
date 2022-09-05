@@ -1,0 +1,90 @@
+.main-content-alt .side-logo-container {
+  order: 2;
+}
+
+.main-content-alt #login-content {
+  order: 1;
+}
+
+#login-content {
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
+  flex-direction: column;
+  max-width: 100%;
+  padding: 0 3rem 0 3rem;
+}
+
+#login-content .register-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+#login-content .register-header p {
+  max-width: 25rem;
+}
+
+#login-content header h2 {
+  font-weight: bold;
+  font-size: 3.6rem;
+  line-height: 34px;
+  color: var(--color-text-title);
+  margin-bottom: 1.6rem;
+  line-height: 46px;
+}
+
+#login-content .register form .input-block:first-child input {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+#login-content .register form .input-block + .input-block {
+  position: relative;
+}
+
+#login-content .register form .input-block + .input-block svg {
+  position: absolute;
+  left: 90%;
+  top: 1px;
+
+  cursor: pointer;
+}
+
+#login-content .register form .input-block + .input-block input {
+  margin-top: -1.5rem;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+}
+
+#login-content .register form .email-input {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+}
+
+@media (min-width: 1100px) {
+  #login-content {
+    max-width: 70%;
+    padding: 0 3rem 0 3rem;
+  }
+}
+
+
+@media (min-width: 1500px) {
+  #login-content {
+    max-width: 50%;
+    padding: 0 3rem 0 3rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  .main-content-alt .side-logo-container {
+    order: 1;
+  }
+
+  .main-content-alt #login-content {
+  order: 2;
+}
+}

@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Image, Text, View, TouchableOpacity } from 'react-native';
 import styles from './styles';
-import { RectButton, GestureHandlerRootView } from 'react-native-gesture-handler';
+import {
+  RectButton,
+  GestureHandlerRootView
+} from 'react-native-gesture-handler';
 
 import studyIcon from '../../assets/images/icons/study.png';
 import giveClassesIcon from '../../assets/images/icons/give-classes.png';
@@ -10,8 +13,6 @@ import landingImg from '../../assets/images/landing.png';
 
 import { useNavigation } from '@react-navigation/native';
 import api from '../../services/api';
-
- 
 
 const Landing = () => {
   const { navigate } = useNavigation();
@@ -61,7 +62,8 @@ const Landing = () => {
       </GestureHandlerRootView>
 
       <Text style={styles.totalConnections}>
-        Total de {totalConnections} conexões já realizadas <Image source={heartIcon} />
+        Total de {totalConnections} conexões já realizadas{' '}
+        <Image source={heartIcon} />
       </Text>
     </View>
   );
