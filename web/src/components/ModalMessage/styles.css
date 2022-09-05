@@ -1,0 +1,52 @@
+.modal-container {
+  position: absolute;
+  background-color: var(--color-primary);
+  width: 100vw;
+  height: 100vh;
+
+  background-size: 75rem;
+
+}
+
+.modal-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+  padding: 0 15rem;
+}
+
+.modal-wrapper svg {
+  margin-bottom: 4rem;
+}
+
+.modal-wrapper h1 {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 5.4rem;
+  line-height: 42px;
+  color: #fff;
+  margin-bottom: 2.4rem;
+  text-align: center;
+}
+
+.modal-wrapper p {
+  text-align: center;
+  font-size: 1.6rem;
+  font-family: 'Poppins';
+  line-height: 26px;
+  color: var(--color-text-in-primary);
+  max-width: 40rem;
+  margin-bottom: 8rem;
+}
+
+@media (max-width: 800px) {
+  .modal-wrapper h1 {
+    font-size: 3.6rem;
+  }
+  .modal-wrapper {
+    padding: 0 5rem;
+  }
+}
