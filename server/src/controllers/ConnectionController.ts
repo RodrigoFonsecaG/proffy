@@ -3,7 +3,7 @@ import db from '../database/connections';
 
 export default class ConnectionController {
     async create(req: Request, res: Response) {
-        const { user_id } = req.body;
+      const { user_id } = req.body;
 
         await db('connections').insert({
             user_id,

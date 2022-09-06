@@ -1,17 +1,25 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+
 import Input from '../../components/Input';
 import LoginContent from '../../components/LoginContent';
 import Button from '../../components/Button';
 import './styles.css';
-import { Checkbox } from 'pretty-checkbox-react';
+import bcrypt from 'bcryptjs';
 
-import { Check, Eye, EyeOff } from 'react-feather';
+
+import {  Eye, EyeOff } from 'react-feather';
 import ModalMessage from '../../components/ModalMessage';
+import api from '../../services/api';
+
 
 const Register = () => {
   const [passwordIcon, setPasswordIcon] = useState(false);
   const [modalVisibility, setModalVisibility] = useState(false);
+
+  //form
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   function togglePasswordIcon(event: any) {
     const inputPassword = event.currentTarget.previousElementSibling;
@@ -26,7 +34,31 @@ const Register = () => {
 
   function handleSubmit(e: React.FormEvent<HTMLButtonElement>) {
     e.preventDefault();
-    setModalVisibility(true);
+
+    if (name.length === 0 || email.length === 0 || password.length === 0) {
+      alert('Preencha todos os campos');
+    } else {
+
+   
+      const salt = bcrypt.genSaltSync(10);
+      const hashPassword = bcrypt.hashSync(password, salt);
+
+      console.log(hashPassword)
+
+
+      api
+        .post('register', {
+          name,
+          email,
+          password: hashPassword
+        })
+        .then((response) => {
+          setModalVisibility(true);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
   }
 
   return (
@@ -39,16 +71,28 @@ const Register = () => {
           </header>
 
           <div className="register">
-            <form action="">
-              <Input name="name" placeholder="Nome" />
+            <form action="POST">
+              <Input
+                name="name"
+                placeholder="Nome"
+                onChange={(e) => {
+                  setName(e.target.value);
+                }}
+              />
 
               <Input
                 name="email"
                 placeholder="E-mail"
                 className="email-input"
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                }}
               />
               {passwordIcon ? (
                 <Input
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                  }}
                   name="password"
                   placeholder="Senha"
                   type="password"
@@ -56,6 +100,9 @@ const Register = () => {
                 />
               ) : (
                 <Input
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                  }}
                   name="password"
                   placeholder="Senha"
                   type="password"
@@ -63,7 +110,11 @@ const Register = () => {
                 />
               )}
 
-              <Button text="Concluir cadastro" onClick={handleSubmit} />
+              <Button
+                type="submit"
+                text="Concluir cadastro"
+                onClick={handleSubmit}
+              />
             </form>
           </div>
         </div>
